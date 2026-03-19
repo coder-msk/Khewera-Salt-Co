@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import Loading from "../components/Loading";
+import Loading, { setProgress } from "../components/Loading";
 
 interface LoadingType {
   isLoading: boolean;
@@ -24,7 +24,16 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setIsLoading,
     setLoading,
   };
-  useEffect(() => {}, [loading]);
+
+  // Auto-progress since we no longer have the 3D model loader
+  useEffect(() => {
+    const progress = setProgress(setLoading);
+    // Simulate loading completion after a brief delay
+    const timer = setTimeout(() => {
+      progress.clear();
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>

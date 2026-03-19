@@ -1,0 +1,337 @@
+/* ===== QUOTE MODAL ===== */
+.quote-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: overlayFadeIn 0.3s ease forwards;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.quote-modal {
+  background: var(--color-bg, #F8F7F4);
+  border-radius: 12px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+  animation: modalSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.quote-modal-inner {
+  padding: 50px;
+}
+
+/* Close Button */
+.quote-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border, #E0DDD7);
+  border-radius: 50%;
+  background: var(--color-white, #fff);
+  color: var(--color-text, #2D2D2D);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.quote-close:hover {
+  background: var(--color-text, #2D2D2D);
+  color: var(--color-white, #fff);
+  border-color: var(--color-text, #2D2D2D);
+}
+
+/* Header */
+.quote-header {
+  margin-bottom: 36px;
+}
+
+.quote-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--color-accent, #8B7355);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.quote-header h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--color-text, #2D2D2D);
+  margin: 0 0 10px;
+}
+
+.quote-header p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-text-light, #6B6B6B);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Form */
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quote-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.quote-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quote-field-full {
+  width: 100%;
+}
+
+.quote-field label {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--color-text, #2D2D2D);
+  text-transform: uppercase;
+}
+
+.quote-field input,
+.quote-field select,
+.quote-field textarea {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text, #2D2D2D);
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-border, #E0DDD7);
+  border-radius: 6px;
+  padding: 13px 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.quote-field input::placeholder,
+.quote-field textarea::placeholder {
+  color: var(--color-text-muted, #999);
+  font-weight: 300;
+}
+
+.quote-field input:focus,
+.quote-field select:focus,
+.quote-field textarea:focus {
+  border-color: var(--color-accent, #8B7355);
+  box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+}
+
+.quote-field select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B6B6B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.quote-field select option[value=""][disabled] {
+  color: var(--color-text-muted, #999);
+}
+
+.quote-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit Button */
+.quote-submit {
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  background: var(--color-text, #2D2D2D);
+  color: var(--color-white, #fff);
+  border: 2px solid var(--color-text, #2D2D2D);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  margin-top: 8px;
+}
+
+.quote-submit:hover:not(:disabled) {
+  background: transparent;
+  color: var(--color-text, #2D2D2D);
+}
+
+.quote-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.quote-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white, #fff);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Note */
+.quote-note {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-text-muted, #999);
+  text-align: center;
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+
+/* Success State */
+.quote-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.quote-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-accent, #8B7355);
+  color: var(--color-white, #fff);
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  animation: successPop 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes successPop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.quote-success h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-text, #2D2D2D);
+  margin: 0 0 10px;
+}
+
+.quote-success p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-text-light, #6B6B6B);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Scrollbar for modal */
+.quote-modal::-webkit-scrollbar {
+  width: 4px;
+}
+
+.quote-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quote-modal::-webkit-scrollbar-thumb {
+  background: var(--color-border-dark, #C5C0B8);
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media screen and (max-width: 700px) {
+  .quote-modal-inner {
+    padding: 40px 24px;
+  }
+
+  .quote-form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .quote-header h2 {
+    font-size: 28px;
+  }
+
+  .quote-close {
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .quote-modal-inner {
+    padding: 32px 18px;
+  }
+
+  .quote-field input,
+  .quote-field select,
+  .quote-field textarea {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+}

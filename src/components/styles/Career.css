@@ -1,244 +1,216 @@
-.career-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  place-items: center;
-  justify-content: center;
-  position: relative;
-  opacity: 1;
-  height: auto;
-  margin: auto;
-  margin-bottom: 250px;
-  padding: 120px 0px;
+/* ===== PROCESS / WHY CHOOSE US ===== */
+.process-section {
+  padding: 140px 0 100px;
+  background: var(--color-bg-alt);
 }
 
-.career-section h2 {
-  font-size: 70px;
-  line-height: 70px;
-  font-weight: 400;
-  text-align: center;
-  background: linear-gradient(0deg, #0d9488, #ffffff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  margin-top: 50px;
-  margin-bottom: 90px;
-}
-
-.career-section h2>span {
-  font-family: "Geist", sans-serif;
-  font-weight: 300;
-}
-
-.career-info {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 0px auto;
-}
-
-.career-info-box {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
-}
-
-.career-info-box p {
-  width: 40%;
-  font-size: 18px;
-  font-weight: 300;
-  margin: 0;
-}
-
-.career-info-in {
-  display: flex;
-  width: 40%;
-  justify-content: space-between;
-  gap: 50px;
-}
-
-.career-info h3 {
-  font-size: 48px;
-  margin: 0;
+.process-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 45px;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 25px;
 }
 
-.career-info h4 {
-  font-size: 33px;
-  line-height: 30px;
-  letter-spacing: 0.8px;
-  font-weight: 500;
-  margin: 0;
+.process-heading {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 80px;
 }
 
-.career-info h5 {
-  font-weight: 400;
-  letter-spacing: 0.7px;
-  font-size: 20px;
-  text-transform: capitalize;
-  margin: 10px 0px;
-  color: var(--accentColor);
+/* Timeline */
+.process-timeline {
+  position: relative;
+  max-width: 700px;
+  margin-bottom: 100px;
 }
 
-.career-timeline {
+.process-line {
   position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 100%;
-  background-image: linear-gradient(to top,
-      #14b8a6 20%,
-      var(--accentColor) 50%,
-      transparent 95%);
-  max-height: 0%;
-}
-
-.career-dot {
-  position: absolute;
+  left: 15px;
+  top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  background-color: #14b8a6;
-  width: 10px;
-  height: 10px;
-  border-radius: 50px;
-  box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 8px #5eead4,
-    0px 0px 110px 20px #a5f3fc;
-  animation: timeline 0.8s linear infinite forwards;
+  width: 1px;
+  background: var(--color-border);
 }
 
-@keyframes timeline {
+.process-line-fill {
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  transform-origin: top;
+}
 
-  10%,
-  20%,
-  50%,
-  70%,
-  90% {
-    box-shadow: 0px 0px 5px 2px #67e8f9;
-  }
+.process-step {
+  position: relative;
+  padding-left: 60px;
+  padding-bottom: 50px;
+}
 
-  10%,
-  30%,
-  0%,
-  100%,
-  64%,
-  80% {
-    box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
-      0px 0px 110px 20px #a5f3fc;
+.process-step:last-child {
+  padding-bottom: 0;
+}
+
+.process-dot {
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  border: 2px solid var(--color-accent);
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.process-step:hover .process-dot {
+  background: var(--color-accent);
+}
+
+.process-step-content {
+  transition: transform 0.3s ease;
+}
+
+.process-step:hover .process-step-content {
+  transform: translateX(8px);
+}
+
+.process-number {
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.process-step-content h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 2px;
+}
+
+.process-step-content h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+  letter-spacing: 0.05em;
+}
+
+.process-step-content p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin: 0;
+  max-width: 550px;
+}
+
+/* Export Info Stats */
+.export-info {
+  border-top: 1px solid var(--color-border);
+  padding-top: 60px;
+}
+
+.export-info-heading {
+  font-family: "Outfit", sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--color-text);
+  margin: 0 0 40px;
+  text-align: center;
+}
+
+.export-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.export-stat {
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.export-stat:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+}
+
+.export-stat-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.export-stat h4 {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.export-stat p {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .export-stats {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@keyframes timeline2 {
-  0% {
-    box-shadow: 0px 0px 5px 2px #67e8f9;
+@media screen and (max-width: 900px) {
+  .process-section {
+    padding: 80px 0 60px;
   }
 
-  100% {
-    box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
-      0px 0px 110px 20px #a5f3fc;
-  }
-}
-
-@media only screen and (max-width: 1400px) {
-  .career-section h2 {
-    font-size: 50px;
-    line-height: 50px;
+  .process-heading {
+    margin-bottom: 50px;
   }
 
-  .career-info h4 {
-    font-size: 22px;
-    line-height: 24px;
-    width: 180px;
+  .process-step {
+    padding-left: 45px;
+    padding-bottom: 35px;
   }
 
-  .career-info h5 {
-    font-size: 17px;
+  .process-step-content h3 {
+    font-size: 20px;
   }
 
-  .career-info h3 {
-    font-size: 40px;
+  .process-step-content p {
+    font-size: 13px;
   }
 
-  .career-info-box p {
-    font-size: 14px;
+  .export-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .career-info-in {
-    width: 45%;
-    gap: 20px;
-  }
-
-  .career-info-box p {
-    width: 45%;
-  }
-}
-
-@media only screen and (max-width: 1025px) {
-  .career-section {
-    padding: 70px 0px;
-    padding-top: 220px;
-    margin-top: -200px;
-    margin-bottom: 0;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .career-info-box {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 70px;
-  }
-
-  .career-info-in,
-  .career-info-box p {
-    width: 100%;
-    padding-left: 10%;
-    box-sizing: border-box;
-  }
-
-  .career-timeline {
-    left: 0%;
-  }
-
-  .career-container {
-    width: calc(100% - 25px);
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .career-info {
-    margin: 0;
-  }
-
-  .career-section h2 {
-    width: 100%;
-    font-size: 45px;
-    line-height: 45px;
-    margin-top: 0px;
-  }
-
-  .career-info-in {
-    gap: 0px;
-  }
-
-  .career-info h3 {
-    font-size: 33px;
-  }
-
-  .career-info-in,
-  .career-info-box p {
-    padding-left: 5%;
-  }
-
-  .career-section {
-    padding-top: 90px;
-    margin-top: -70px;
-
-    align-items: start;
-    place-items: inherit;
-    justify-content: left;
+  .export-stat {
+    padding: 24px 20px;
   }
 }
