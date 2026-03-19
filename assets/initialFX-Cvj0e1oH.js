@@ -1,1 +1,0 @@
-import{s as a,g as o}from"./index-BUajfxTp.js";function t(){document.body.style.overflowY="auto",a.paused(!1),document.getElementsByTagName("main")[0].classList.add("main-active"),o.to("body",{backgroundColor:"#F8F7F4",duration:.5,delay:.5}),o.fromTo(".header",{opacity:0},{opacity:1,duration:1.2,ease:"power1.inOut",delay:.1})}export{t as initialFX};
