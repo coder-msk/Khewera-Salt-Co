@@ -73,7 +73,7 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
       phone: formData.phone,
       salt_type: formData.saltType,
       volume: formData.volume,
-      packaging: formData.packaging,
+      packaging: formData.deliveryTerms,
       destination: formData.destination,
       message: formData.message,
     };
